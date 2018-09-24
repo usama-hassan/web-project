@@ -1,0 +1,67 @@
+*
+{
+	box-sizing: border-box;
+}
+
+
+
+#navbar-div
+{
+	padding: 7px;
+	background-color: black;
+}
+
+.col-lg-1
+{
+	float: center;
+	font-size: 19px;
+	margin-left: 12px;
+	list-style-type: none;
+    padding-top: 9px;
+    padding-bottom: 8px;
+    padding-right: 0;
+    text-align: center;
+}
+
+#main-icon
+{
+	height: 17%;
+	width: 14%;
+	padding-right: 11px;
+}
+
+#title
+{
+	font-size: 26px;
+	margin-left: 35px;
+	margin-right: 45px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	text-align: center;
+	font-weight: bolder;
+}
+
+#login
+{
+	float: right;
+}
+
+#signup
+{
+	float: right;
+	margin-left: 0px;
+	margin-right: 50px;
+}
+
+a
+{
+	text-align: center;
+	color: white;
+}
+
+.row::after
+{
+    content: "";
+    clear: both;
+    display: table;
+}

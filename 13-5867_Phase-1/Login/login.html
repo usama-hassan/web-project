@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  		<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial">
+  		<link rel="stylesheet" type="text/css" href="../NavBar/navbar.css">
+  		<link rel="stylesheet" type="text/css" href="login.css">
+		  <script src="login.js"></script>
+      <style>body,h1,h2,h3,h4,h5,h6, p { font-family: "Arial", sans-serif }</style>
+</head>
+<body style="overflow-x: hidden;">
+  <nav class="row" id="navbar-div">
+      <div class="col-lg-2" id="title" style="color: white"><img id="main-icon" src="../img/icon1.png"><a href="../Home/home.html">Trip Advisor</a></div>
+      <div class="col-lg-1"><a href="../Restaurants/restaurants.html">Restaurants</a></div>
+      <div class="col-lg-1"><a href="../Hotels/hotels.html">Hotels</a></div>
+      <div class="col-lg-1"><a href="../Flights/flights.html">Flights</a></div>
+      <div class="col-lg-1"><a href="../Attractions/attractions.html">Attractions</a></div>
+      <div class="col-lg-1" id="signup"><a href="../Signup/signup.html">Sign Up</a></div>
+      <div class="col-lg-1" id="login"><a href="../Login/login.html">Login</a></div>
+    </nav>
+  <div class="container-fluid">
+    <form>
+      <div class="imgcontainer">
+        <img src="../img/login1.png" alt="Login" style="width: 10%; height: 10%">
+      </div>
+
+      <div class="container">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Username" id="email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" id="password" name="psw" required>
+
+          <button type="submit" onclick="loginBtnFunction()">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+
+          <button type="button" onclick="cancelBtnFunction()" class="cancelbtn" style="margin-left: 10px;">Cancel</button>
+          <span class="psw"> <a id="forgot-password" href="../ForgotPassword/forgotPassword.html">Forgot password?</a></span>
+          </br>
+          <h4 style="text-align: center; font-size: 26px;">or</h4>
+          </br>
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+              <fb:login-button 
+                scope="public_profile, email, user_friends"
+                onlogin="checkLoginState();">
+              </fb:login-button>
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="w3-container">
+        <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
+          <h2>Get the best offers first!</h2>
+          <p>Join our newsletter.</p>
+          <label>E-mail</label>
+          <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+          <button type="button" class="w3-button w3-red w3-margin-top">Subscribe</button>
+        </div>
+      </div>
+    <div class="w3-container">
+        <h2>Contact</h2>
+        <p>Let us book your next trip!</p>
+        <i class="fa fa-map-marker" style="width:30px"></i> Lahore, PK<br>
+        <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+        <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+    </div>
+    <footer class="w3-padding-32 w3-black w3-center w3-margin-top">
+      <h5>Find Us On</h5>
+      <div class="w3-xlarge w3-padding-16">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+    </footer>
+
+  
+</body>
+
+<script type="text/javascript">
+  
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '532082310521078',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.12'
+    });
+      
+
+        FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });  
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  function statusChangeCallback(response)
+  {
+    if(response.status === 'connected')
+    {
+      console.log("Logged in");
+      console.log(response);
+      window.location = "../AddComment/fb_comments.html";
+    }
+    else
+      console.log("Not authenticated");
+  }
+
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+</script>
+
+<script type="text/javascript">
+
+  function loginBtnFunction()
+  {
+    var a = document.getElementById("email").value;
+    var b = document.getElementById("password").value;
+
+    $.ajax({
+      type: "POST",
+      url: "http://localhost/13-5867_Phase-1/Controller/LoginController/servercontroller.php",
+      data: { REQUEST_TYPE: "LOGIN", EMAIL: a, PASSWORD: b },
+      dataType: 'json',
+      success: function (data) 
+      {
+        if (data.STATUS == "SUCCESS")
+        {
+          alert('Login successful');
+          if(localStorage.getItem("navigateToComment") == "yes")
+          {
+            localStorage.setItem("navigateToComment","no");
+            window.location = "../AddComment/comments.html";
+          }
+          else
+          {
+            window.location = "../Home/home.html";
+          }
+        }
+        else if (data.STATUS == "FAIL") 
+        {
+          alert('Some error occured');
+        }
+        else //ERROR
+        {
+          alert('Error');
+        }
+      },
+      error: function (x, t, m) {
+        if (t === "timeout") {
+          alert('Timeout');
+        } else {
+          alert(t);
+        }
+      }
+    });
+  }
+
+  function cancelBtnFunction()
+  {
+    window.location = "../Home/home.html";
+  }
+</script>
+
+</html>

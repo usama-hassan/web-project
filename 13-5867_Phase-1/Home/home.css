@@ -1,0 +1,162 @@
+*
+{
+	box-sizing: border-box;
+}
+
+.jumbotron
+{
+	background-image: url("../img/beach1.jpg");
+	background-size: 100% 16%;
+	background-position: top;
+	background-repeat: no-repeat;
+	width: auto;
+	background-color: white;
+}
+
+#phrase
+{
+	margin-top: 90px;
+	font-size: 33px;
+	text-align: left;
+	color: white;
+	font-weight: bold;
+	padding-bottom: 20px;
+}
+
+.autocomplete
+{
+	padding-top: 100px;
+	opacity: 0.78;
+	margin-left: 5%;
+	position: relative;
+	height: 20px;
+}
+
+.autocomplete input[type=text]
+{
+	padding: 11px;
+	padding-left: 18px;
+	margin-left: 200px;
+	font-size: 18px;
+	border: 0px solid grey;
+	float: left;
+	width: 60%;
+	background: white;
+	border-radius: 30px 0px 0px 30px;
+}
+
+.autocomplete-items
+{
+  position: relative;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  /*position the autocomplete items to be the same width as the container:*/
+  margin-top: 152px;
+  width: 58.7%;
+  margin-left: 220px;
+}
+
+.autocomplete-items div
+{
+  border-radius: 30px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+  border-radius: 0;
+}
+
+.autocomplete-items div:hover
+{
+  background-color: #e9e9e9; 
+}
+
+.autocomplete-active
+{
+  background-color: DodgerBlue; 
+  color: #ffffff; 
+}
+
+#checkin_date
+{
+	text-align: right;
+	margin-top: 59px;
+	height: 47px;
+	margin-left: -200px;
+	border-left: 2px solid #d4d4d4;
+	border-right: 1px solid #fff;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+
+#checkout_date
+{
+	text-align: right;
+	margin-top: 57px;
+	height: 47px;
+	margin-left: -5px;
+	border-left: 2px solid #d4d4d4;
+	border-right: 1px solid #fff;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+
+#search-btn
+{
+	float: left;
+	width: 10%;
+	padding: 11px;
+	background: #9432B3;
+	color: white;
+	font-size: 17px;
+	border: 1px solid grey;
+	border-left: none;
+	cursor: pointer;
+	border-radius: 0px 30px 30px 0px;
+}
+
+#search-btn:hover
+{
+	background: #0b7dda;
+}
+
+#search-div
+{
+	padding-bottom: 450px;
+}
+
+#recommended-places-heading
+{
+	margin-top: 60px;
+	text-align: center;
+	font-size: 38px;
+	font-weight: bold;
+	padding-bottom: 30px;
+}
+
+#recommended-places
+{
+	font-size: 28px;
+	margin-left: 50px;
+	color: black;
+	font-weight: bold;
+	height: 30px;
+}
+
+.col-lg-3
+{
+	margin-bottom: 25px;
+}
+
+.row::after
+{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+p
+{
+	text-align: left;
+}

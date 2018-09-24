@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flights</title>
+	<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../NavBar/navbar.css">
+		<link rel="stylesheet" type="text/css" href="flights.css">
+		<script src="flights.js"></script>
+</head>
+<body style="overflow-x: hidden;">
+	<div class="container-fluid">
+		<nav class="row" id="navbar-div">
+			<div class="col-lg-2" id="title" style="color: white"><img id="main-icon" src="../img/icon1.png"><a href="../Home/home.html">Trip Advisor</a></div>
+			<div class="col-lg-1"><a href="../Restaurants/restaurants.html">Restaurants</a></div>
+			<div class="col-lg-1"><a href="../Hotels/hotels.html">Hotels</a></div>
+			<div class="col-lg-1"><a href="../Flights/flights.html">Flights</a></div>
+			<div class="col-lg-1"><a href="../Attractions/attractions.html">Attractions</a></div>
+			<div class="col-lg-1" id="signup"><a href="signup.html">Sign Up</a></div>
+			<div class="col-lg-1" id="login"><a href="login.html">Login</a></div>
+		</nav>
+	</div>
+	<div class="jumbotron">
+		<div id="page-content">
+			<div class="row" id="search-div" style="margin-top:80px;">
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4" id="phrase">Find a flight at the right price...</div>
+				<div class="col-lg-4"></div>
+				<form autocomplete="off" action="../Flights/flight.html">
+					<div class="autocomplete">
+				 		<input id="myInput" type="text" placeholder="Departure airport..." name="search">
+				 		<button id="search-btn" type="submit"><i class="fa fa-search"></i></button>
+				 	</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hotel Details</title>
+	<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  		<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+  		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial">
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../NavBar/navbar.css">
+		<link rel="stylesheet" type="text/css" href="hotelDetails.css">
+		<script src="hotelDetails.js"></script>
+		<style>body,h1,h2,h3,h4,h5,h6, p { font-family: "Arial", sans-serif }</style>
+</head>
+<body style="overflow-x: hidden;">
+
+  <div id="fb-root"></div>
+    <script>(function(d, s, id)
+    {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0&appId=532082310521078&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+  <div class="container-fluid">
+    <nav class="row" id="navbar-div">
+      <div class="col-lg-2" id="title" style="color: white"><img id="main-icon" src="../img/icon1.png"><a href="../Home/home.html">Trip Advisor</a></div>
+      <div class="col-lg-1"><a href="../Restaurants/restaurants.html">Restaurants</a></div>
+      <div class="col-lg-1"><a href="../Hotels/hotels.html">Hotels</a></div>
+      <div class="col-lg-1"><a href="../Flights/flights.html">Flights</a></div>
+      <div class="col-lg-1"><a href="../Attractions/attractions.html">Attractions</a></div>
+      <div class="col-lg-1" id="signup"><a href="../Signup/signup.html">Sign Up</a></div>
+      <div class="col-lg-1" id="login"><a href="../Login/login.html">Login</a></div>
+    </nav>
+  </div>
+  <div class="jumbotron">
+    <div id="page-content">
+      <center>
+        <div class="slideshow-container">
+          <div class="mySlides">
+            <img src="../img/istanbul.jpg" style="width:100%; height: 500px">
+            <div class="text">Caption Text</div>
+          </div>
+
+          <div class="mySlides">
+            <img src="../img/dubai.jpg" style="width:100%; height: 500px">
+            <div class="text">Caption Two</div>
+          </div>
+
+          <div class="mySlides">
+            <img src="../img/beach3.jpg" style="width:100%; height: 500px">
+            <div class="text">Caption Three</div>
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+      </center>
+      <br>
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div>
+    </div>
+  </div>
+      <div class="col-lg-4" style="margin-left: 70px;">
+        <h2 id="hotel_name" style="font-size: 34px; text-align: left; font-weight: bold;"></h2>
+          <div id="starsDiv">
+            
+          </div><br>
+          <h5 id="address" style="font-size: 20px;"></h5>
+          <h5 id="contact" style="font-size: 20px;"></h5><br>
+          <h4><a style="color: #2196F3; font-size: 28px;" onclick="loginComment()">Login to leave a comment</a></h4><br>
+          <div class="row" id="fb_login">
+            <div class="col-lg-2">
+              <fb:login-button
+                scope="public_profile, email, user_friends"
+                onlogin="checkLoginState();">
+              </fb:login-button><br>
+              <button id="logout_btn" onclick="logout()">Logout</button>
+            </div>
+            <div class="col-lg-10"></div>
+          </div>
+          <br>
+          
+          <div class="row">
+            <div class="col-lg-8">
+              <!--<div id="TA_selfserveprop649" class="TA_selfserveprop">
+                <ul id="dtoETAQckON" class="TA_links iciXVGxY">
+                <li id="XzDRG6lIx0V" class="ZO3v8Z7TE3">
+                <a target="_blank" href="https://www.tripadvisor.com/"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor"/></a>
+                </li>
+                </ul>
+                </div>
+                <script async src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=649&amp;locationId=1652789&amp;lang=en_US&amp;rating=true&amp;nreviews=3&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=true&amp;display_version=2"></script>-->
+
+              <br><br>
+              <h2 style="font-weight: bold;">Reviews</h2>
+              <h4>Facebook User Comments</h4>
+              <br>
+              <div id="fbComments" style="width: 800px;">
+              </div>
+              <br><br>
+              <textarea name="comment" id="comment" style="width: 800px" placeholder="Add a comment..."></textarea>
+              <button id="postBtn" type="submit" onclick="postComment()">Post</button>
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+
+      </div>
+
+  <div class="w3-container">
+        <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
+          <h2>Get the best offers first!</h2>
+          <p>Join our newsletter.</p>
+          <label>E-mail</label>
+          <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+          <button type="button" class="w3-button w3-red w3-margin-top">Subscribe</button>
+        </div>
+      </div>
+    <div class="w3-container">
+        <h2>Contact</h2>
+        <p>Let us book your next trip!</p>
+        <i class="fa fa-map-marker" style="width:30px"></i> Lahore, PK<br>
+        <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+        <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+    </div>
+    <footer class="w3-padding-32 w3-black w3-center w3-margin-top">
+      <h5>Find Us On</h5>
+      <div class="w3-xlarge w3-padding-16">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+    </footer>
+  </body>
+
+<script type="text/javascript">
+  
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '532082310521078',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.12'
+    });
+      
+
+        FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });  
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  function statusChangeCallback(response)
+  {
+    if(response.status === 'connected')
+    {
+      console.log("Logged in");
+      testAPI();
+      //console.log(response);
+      //window.location = "../AddComment/fb_comments.html";
+    }
+    else
+      console.log("Not authenticated");
+  }
+
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+</script>
+
+
+  <script type="text/javascript">
+
+    window.onload = function() {
+      loadContent();
+      loadFbComments();
+    };
+
+    function loadFbComments()
+    {
+      var details = JSON.parse(localStorage.getItem("hotelDetails"));
+      var hotel_name = details.NAME;
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/13-5867_Phase-1/Controller/LoadFbCommentsController/servercontroller.php",
+        data: { REQUEST_TYPE: "LOAD_FB_COMMENTS", HOTEL_NAME: hotel_name },
+        dataType: 'json',
+        success: function (data) 
+        {
+          if (data.STATUS == "SUCCESS")
+          {
+            console.log(data);
+            var generateHT = "";
+            for (var i = 0; i < data.count; i++) 
+            {
+              generateHT += '<h5><b>'+data.DATA[i].NAME+'</b><br><span>'+data.DATA[i].COMMENT+'</span></h5>';
+            }
+            document.getElementById('fbComments').innerHTML = generateHT;
+          }
+          else if (data.STATUS == "FAIL") 
+          {
+            alert('Some error occured');
+          }
+          else
+          {
+             alert('Error');
+          }
+        },
+        error: function (x, t, m) {
+          if (t === "timeout") {
+             alert('Timeout');
+          } else {
+             alert(t);
+          }
+        }
+      }); 
+    }
+
+    function testAPI()
+    {
+      FB.api('/me?fields=name, email,friends', function(response)
+      {
+        if(response && !response.error)
+        {
+          console.log(response);
+        }
+      })
+    }
+
+    function logout()
+    {
+      FB.logout(function(response)
+        {
+          console.log("Logout");
+        });
+      history.go(0);
+    }
+
+    function postComment()
+    {
+      var user_id = "";
+      var name = "";
+      
+
+      FB.api('/me?fields=id,name', function(response)
+      {
+        if(response && !response.error)
+        {
+         // name = response.name;
+         console.log(response);
+         user_id=response.id;
+         name = response.name;
+
+         commentAjaxCall(user_id, name);
+        }
+      })
+      
+      // FB.api('/me?fields=id', function(response)
+      // {
+      //   if(response && !response.error)
+      //   {
+      //     user_id = response.id;
+      //     alert(user_id);
+      //   }
+      // })
+
+      // alert(name);
+      // alert(user_id);
+
+    }
+
+    function commentAjaxCall(user_id, name)
+    {
+      var comment = document.getElementById("comment").value;
+      var details = JSON.parse(localStorage.getItem("hotelDetails"));
+      var hotel_name = details.NAME;
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/13-5867_Phase-1/Controller/AddFbCommentController/servercontroller.php",
+        data: { REQUEST_TYPE: "ADD_FB_COMMENT", NAME: name, COMMENT: comment, FB_USER_ID: user_id, HOTEL_NAME: hotel_name },
+        dataType: 'json',
+        success: function (data) 
+        {
+          if (data.STATUS == "SUCCESS")
+          {
+            loadFbComments();
+            //loadFbComments();
+          }
+          else if (data.STATUS == "FAIL") 
+          {
+            alert('Some error occured');
+          }
+          else
+          {
+             alert('Error');
+          }
+        },
+        error: function (x, t, m) {
+          if (t === "timeout") {
+             alert('Timeout');
+          } else {
+             alert(t);
+          }
+        }
+      });
+    }
+
+    function loadContent()
+    {
+
+      var details = JSON.parse(localStorage.getItem("hotelDetails"));
+      document.getElementById("hotel_name").innerHTML = details.NAME;
+      document.getElementById("address").innerHTML = details.ADDRESS;
+      document.getElementById("contact").innerHTML = details.CONTACT;
+
+      var hotel_id = details.ID;
+
+      var generateHT = "";
+
+
+      if(details.RATING > 4 && details.RATING <= 5)
+      {
+        generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>';
+      }
+      else if(details.RATING > 3 && details.RATING <= 4)
+      {
+        generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>';
+      }
+      else if(details.RATING > 2 && details.RATING <= 3)
+      {
+        generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+      }
+      else if(details.RATING > 1 && details.RATING <= 2)
+      {
+        generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+      }
+      else if(details.RATING > 0 && details.RATING <= 1)
+      {
+        generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+      }
+
+      document.getElementById('starsDiv').innerHTML = generateHT;
+
+
+      $.ajax({
+        type: "POST",
+        url: "http://localhost/13-5867_Phase-1/Controller/SeeCommentsController/servercontroller.php",
+        data: { REQUEST_TYPE: "SEE_COMMENTS", HOTEL_ID: hotel_id },
+        dataType: 'json',
+        success: function (data) 
+        {
+          if (data.STATUS == "SUCCESS")
+          {            
+            for (var i = 0; i < data.count; i++) 
+            {
+              
+            }
+          }
+          else if (data.STATUS == "FAIL") 
+          {
+            var generateHT = "";
+            document.getElementById('emptyDiv').innerHTML = generateHT;
+            document.getElementById('noOne').style.display = "block";
+          }
+          else //ERROR
+          {
+            // alert('Error');
+          }
+        },
+        error: function (x, t, m) {
+          if (t === "timeout") {
+            // alert('Timeout');
+          } else {
+            // alert(t);
+          }
+        }
+      });
+    }
+
+    function loginComment()
+    {
+      localStorage.setItem("navigateToComment", "yes");
+      window.location.href="../Login/login.html"
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1} 
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none"; 
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block"; 
+      dots[slideIndex-1].className += " active";
+    }
+  </script>
+
+</html>

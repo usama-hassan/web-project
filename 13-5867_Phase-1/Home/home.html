@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trip Advisor</title>
+	<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  		<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+  		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial">
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../NavBar/navbar.css">
+		<link rel="stylesheet" type="text/css" href="home.css">
+		<script src="home.js"></script>
+		<style>body,h1,h2,h3,h4,h5,h6, p { font-family: "Arial", sans-serif }</style>
+</head>
+<body style="overflow-x: hidden;">
+	<div class="container-fluid">
+		<nav class="row" id="navbar-div">
+			<div class="col-lg-2" id="title" style="color: white"><img id="main-icon" src="../img/icon1.png"><a href="home.html">Trip Advisor</a></div>
+			<div class="col-lg-1"><a href="../Restaurants/restaurants.html">Restaurants</a></div>
+			<div class="col-lg-1"><a href="../Hotels/hotels.html">Hotels</a></div>
+			<div class="col-lg-1"><a href="../Flights/flights.html">Flights</a></div>
+			<div class="col-lg-1"><a href="../Attractions/attractions.html">Attractions</a></div>
+			<div class="col-lg-1" id="signup"><a href="../Signup/signup.html">Sign Up</a></div>
+			<div class="col-lg-1" id="login"><a href="../Login/login.html">Login</a></div>
+		</nav>
+	</div>
+	<div class="jumbotron">
+		<div id="page-content">
+			<div class="row" id="search-div" style="margin-top:80px;">
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4" id="phrase">Best places. Lowest prices!</div>
+				<div class="col-lg-4"></div>
+				<form autocomplete="off">
+					<div class="autocomplete">
+				 		<input id="myInput" type="text" placeholder="Country or hotel name..." name="search">
+				 		<input id="checkin_date" type="date" name="check-in" onload="checkInFunc()" placeholder="Check in" >
+				 		<input id="checkout_date" type="date" name="check-out">
+				 		<button id="search-btn" onclick="searchForHotels()" type="submit"><i class="fa fa-search"></i></button>
+				 	</div>
+				</form>
+			</div>
+			<div class="w3-container" style="margin-top: 100px;">
+		    <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
+		      <h2>Get the best offers first!</h2>
+		      <p>Join our newsletter.</p>
+		      <label>E-mail</label>
+		      <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+		      <button type="button" class="w3-button w3-red w3-margin-top">Subscribe</button>
+		    </div>
+  		</div>
+
+			<div id="recommended-places-heading">Recommended Places to Visit</div>
+
+			<div class="row">
+				<div class="col-lg-3" id="recommended-places">Popular Destinations</div>
+			</div>
+			<div class="w3-row-padding">
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Dubai')" src="../img/dubai.jpg" alt="Dubai" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b id="city_name">Dubai</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Istanbul')" src="../img/istanbul.jpg" alt="Istanbul" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Istanbul</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Kuala Lumpur')" src="../img/kuala-lumpur.jpg" alt="Kuala Lumpur" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Kuala Lumpur</b></p>
+			      </div>
+			    </div>
+  			</div>
+			<div class="row">
+				<div class="col-lg-3" id="recommended-places">Sunny Beaches</div>
+			</div>
+			<div class="w3-row-padding">
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Maui')" src="../img/maui.jpg" alt="Maui" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Maui</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Oahu')" src="../img/oahu.jpg" alt="Oahu" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Oahu</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Palawan')" src="../img/palawan.jpg" alt="Palawan" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Palawan</b></p>
+			      </div>
+			    </div>
+  			</div>
+			<div class="row">
+				<div class="col-lg-3" id="recommended-places">Most Romantic</div>
+			</div>
+			<div class="w3-row-padding">
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Paris')" src="../img/paris.jpg" alt="Paris" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Paris</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Exumas')" src="../img/exumas.jpg" alt="Exumas" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Exumas</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Maldives')" src="../img/maldives.jpg" alt="Maldives" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Maldives</b></p>
+			      </div>
+			    </div>
+  			</div>
+  			<div class="row">
+				<div class="col-lg-3" id="recommended-places">Northern Lights</div>
+			</div>
+			<div class="w3-row-padding">
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Svalbard')" src="../img/svalbard.jpg" alt="Svalbard" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Svalbard</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Stewart Island')" src="../img/stewart-island.jpg" alt="Stewart Island" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Stewart Island</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Kakslauttanen')" src="../img/kakslauttanen.jpg" alt="Kakslauttanen" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Kakslauttanen</b></p>
+			      </div>
+			    </div>
+  			</div>
+  			<div class="row">
+				<div class="col-lg-3" id="recommended-places">Places To Party</div>
+			</div>
+			<div class="w3-row-padding">
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Miami')" src="../img/miami.jpg" alt="Miami" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Miami</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Ibiza')" src="../img/ibiza.jpg" alt="Ibiza" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Ibiza</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Las Vegas')" src="../img/las-vegas.jpg" alt="Las Vegas" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Las Vegas</b></p>
+			      </div>
+			    </div>
+  			</div>
+			<div class="row">
+				<div class="col-lg-3" id="recommended-places">Historic Places</div>
+			</div>
+			<div class="w3-row-padding">
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Rome')" src="../img/rome.jpg" alt="Rome" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Rome</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Barcelona')" src="../img/barcelona.jpg" alt="Barcelona" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Barcelona</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Prague')" src="../img/prague.jpg" alt="Prague" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Prague</b></p>
+			      </div>
+			    </div>
+  			</div>
+			<div class="row">
+				<div class="col-lg-3" id="recommended-places">Most Adventurous</div>
+			</div>
+			<div class="w3-row-padding">
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Tasmania')" src="../img/tasmania.jpg" alt="Tasmania" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Tasmania</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container w3-margin-bottom">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Iceland')" src="../img/iceland.jpg" alt="Iceland" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Iceland</b></p>
+			      </div>
+			    </div>
+			    <div class="w3-third w3-container">
+			      <a href="../HotelsList/HotelsList.html" target="_blank"><img onclick="imgClick('Patagonia')" src="../img/patagonia.jpg" alt="Patagonia" style="width:100%; height: 370px" class="w3-hover-opacity"></a>
+			      <div class="w3-container w3-white">
+			        <p><b>Patagonia</b></p>
+			      </div>
+			    </div>
+  			</div>
+		</div>
+		
+		<div class="w3-container">
+		    <h2>Contact</h2>
+		    <p>Let us book your next trip!</p>
+		    <i class="fa fa-map-marker" style="width:30px"></i> Lahore, PK<br>
+		    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+		    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+		</div>
+		<footer class="w3-padding-32 w3-black w3-center w3-margin-top">
+		  <h5>Find Us On</h5>
+		  <div class="w3-xlarge w3-padding-16">
+		    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+		    <i class="fa fa-instagram w3-hover-opacity"></i>
+		    <i class="fa fa-snapchat w3-hover-opacity"></i>
+		    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+		    <i class="fa fa-twitter w3-hover-opacity"></i>
+		    <i class="fa fa-linkedin w3-hover-opacity"></i>
+		  </div>
+		</footer>
+	</div>
+
+	<script>
+		autocomplete(document.getElementById("myInput"), places);
+
+		function checkInFunc()
+		{
+			$(function() { 
+    			$( "#checkin_date" ).datepicker( )});
+		}
+
+		function imgClick(param)
+		{
+			localStorage.setItem("cityName", param);
+		}
+
+		function searchForHotels()
+		{
+			var country = document.getElementById("myInput").value;
+
+			$.ajax({
+		      type: "POST",
+		      url: "http://localhost/13-5867_Phase-1/Controller/SearchBtnController/servercontroller.php",
+		      data: { REQUEST_TYPE: "SEARCH_FOR_HOTELS", COUNTRY: country },
+		      dataType: 'json',
+		      success: function (data) 
+		      {
+		        if (data.STATUS == "SUCCESS")
+		        {
+		          window.location = "../HotelsList/hotelsList.html";
+		        }
+		        else if (data.STATUS == "FAIL") 
+		        {
+		          alert('Some error occured');
+		        }
+		        else //ERROR
+		        {
+		          alert('Error');
+		        }
+		      },
+		      error: function (x, t, m) {
+		        if (t === "timeout") {
+		          alert('Timeout');
+		        } else {
+		          alert(t);
+		        }
+		      }
+		    });
+		}
+	</script>
+</body>
+</html>
+

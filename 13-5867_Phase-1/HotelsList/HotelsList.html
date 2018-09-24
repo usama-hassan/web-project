@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nearest Hotels</title>
+	<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  		<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+  		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial">
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../NavBar/navbar.css">
+		<link rel="stylesheet" type="text/css" href="HotelsList.css">
+		<script src="home.js"></script>
+		<style>body,h1,h2,h3,h4,h5,h6, p { font-family: "Arial", sans-serif }</style>
+</head>
+<body style="overflow-x: hidden;">
+	<div class="container-fluid">
+		<nav class="row" id="navbar-div">
+			<div class="col-lg-2" id="title" style="color: white"><img id="main-icon" src="../img/icon1.png"><a href="../Home/home.html">Trip Advisor</a></div>
+			<div class="col-lg-1"><a href="../Restaurants/restaurants.html">Restaurants</a></div>
+			<div class="col-lg-1"><a href="../Hotels/hotels.html">Hotels</a></div>
+			<div class="col-lg-1"><a href="../Flights/flights.html">Flights</a></div>
+			<div class="col-lg-1"><a href="../Attractions/attractions.html">Attractions</a></div>
+			<div class="col-lg-1" id="signup"><a href="../Signup/signup.html">Sign Up</a></div>
+			<div class="col-lg-1" id="login"><a href="../Login/login.html">Login</a></div>
+		</nav>
+	</div>
+	<div class="jumbotron">
+		<div id="page-content">
+			<div class="row" style="padding-bottom: 40px;">
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4">
+					<h5 style="text-align: center;">Lowest prices for</h5>
+					<h2 id="city" style="text-align: center; font-size: 36px; font-weight: bold;"></h2>
+				</div>
+				<div class="col-lg-4"></div>
+			</div>
+			<div id="emptyDiv">
+				
+			</div>
+		</div>
+	</div>
+	<div class="w3-container">
+        <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
+          <h2>Get the best offers first!</h2>
+          <p>Join our newsletter.</p>
+          <label>E-mail</label>
+          <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+          <button type="button" class="w3-button w3-red w3-margin-top">Subscribe</button>
+        </div>
+      </div>
+    <div class="w3-container">
+        <h2>Contact</h2>
+        <p>Let us book your next trip!</p>
+        <i class="fa fa-map-marker" style="width:30px"></i> Lahore, PK<br>
+        <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+        <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+    </div>
+    <footer class="w3-padding-32 w3-black w3-center w3-margin-top">
+      <h5>Find Us On</h5>
+      <div class="w3-xlarge w3-padding-16">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+    </footer>
+
+<script type="text/javascript">
+	var sData;
+	window.onload = function() {
+	  loadContent();
+	};
+
+	function infoBtn(param)
+	{
+		localStorage.setItem("hotelDetails", JSON.stringify(sData.DATA[param]));
+		window.location = "../HotelDetails/hotelDetails.html";
+	}
+
+	
+
+	function loadContent()
+	{
+	    var city = localStorage.getItem("cityName");
+		document.getElementById("city").innerHTML = city;
+	    console.log(city);
+		$.ajax({
+	      type: "POST",
+	      url: "http://localhost/13-5867_Phase-1/Controller/HotelsListController/servercontroller.php",
+	      data: { REQUEST_TYPE: "ALL_HOTELS_CITY", CITY: city },
+	      dataType: 'json',
+	      success: function (data) 
+	      {
+	      	if (data.STATUS == "SUCCESS")
+	        {
+	          sData = data;
+	          var generateHT = "";
+	          
+          	  console.log(data);
+	          for (var i = 0; i < data.count; i++) 
+	          {
+	          	generateHT += '<div class="row" id="list-div"><div class="col-lg-4"><img src='+data.DATA[i].IMAGE+' style="height: 320px; width: 450px;"></div><div class="col-lg-6" style="margin-left: 20px;"><h2 id="hotel_name">'+data.DATA[i].NAME+'</h2><div class="row"><div class="col-lg-4" style="padding-top: 35px; color: #79667c"><h4><b>Amenities</b></h4><br><br> + Wifi <br>+ Parking <br>+ Pool <br>+ Air Conditioning <br>+ Breakfast Buffet</div><div class="col-lg-4" style="padding-top: 25px;"><h2 id="hotel_price">PKR '+data.DATA[i].PRICE+'</h2><button class="btn-info" onclick="infoBtn('+i+')">View details and reviews</button></br>';
+	          		if (data.DATA[i].RATING > 4 && data.DATA[i].RATING <= 5) 
+	          		{
+	          			generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>';
+	          		}
+	          		else if (data.DATA[i].RATING > 3 && data.DATA[i].RATING <= 4) 
+	          		{
+	          			generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>';
+	          		}
+	          		else if (data.DATA[i].RATING > 2 && data.DATA[i].RATING <= 3) 
+	          		{
+	          			generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+	          		}
+	          		else if (data.DATA[i].RATING > 1 && data.DATA[i].RATING <= 2) 
+	          		{
+	          			generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+	          		}
+	          		else if (data.DATA[i].RATING > 0 && data.DATA[i].RATING <= 1) 
+	          		{
+	          			generateHT += '<span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+	          		}
+	          		
+	          		generateHT += '<br><br><a style="color: #2196F3; font-size: 16px" href="https://www.kempinski.com/en/dubai/mall-of-the-emirates/welcome/?utm_source=tripadvisor&utm_medium=referral&utm_content=weblink&utm_campaign=KIDXB&tripadvsor_CPC_KIDXB&source=S20001547">Hotel website</a><br><a style="color: #2196F3; font-size: 16px" href="https://outlook.live.com/owa/?authRedirect=true">E-mail hotel</a></div><div class="col-lg-4"></div></div></div><div class="col-lg-1"></div></div>';
+	          }
+	          document.getElementById('emptyDiv').innerHTML += generateHT;
+	        }
+	        else if (data.STATUS == "FAIL") 
+	        {
+	          var generateHT = "";
+	          document.getElementById('emptyDiv').innerHTML = generateHT;
+	          document.getElementById('noOne').style.display = "block";
+	        }
+	        else //ERROR
+	        {
+	          alert('Error');
+	        }
+	      },
+	      error: function (x, t, m) {
+	        if (t === "timeout") {
+	          alert('Timeout');
+	        } else {
+	          alert(t);
+	        }
+	      }
+	  	});
+	}
+
+</script>
+</body>
+</html>

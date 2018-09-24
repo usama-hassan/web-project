@@ -1,0 +1,69 @@
+.jumbotron
+{
+	background-color: white;
+}
+
+#page-content
+{
+	background-color: white;
+}
+
+#list-div
+{
+	margin-right: 30px;
+	margin-left: 70px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+    border-top: 1px solid transparent;
+}
+
+#list-div:hover
+{
+    border-top: 1px solid #d0d0d0;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+#hotel_name
+{
+	font-weight: bold;
+	font-size: 26px;
+	text-align: left;
+}
+
+#hotel_price
+{
+	font-weight: bolder;
+	font-size: 30px;
+	text-align: center;
+}
+
+.btn-info
+{
+    border: none; /* Remove borders */
+    color: white; /* Add a text color */
+    padding: 14px 28px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+    font-weight: bold;
+    font-size: 14px;
+    width: 100%;
+    background-color: #2196F3;
+    border-radius: 2px;
+    float: center;
+}
+
+.btn-info:hover
+{
+	background: #0b7dda;
+}
+
+.fa-star
+{
+	float: center;
+	font-size: 18px;
+	padding-top: 10px;
+	padding-top: 15px;
+}
+
+.checked {
+    color: orange;
+}
